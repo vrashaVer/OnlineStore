@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Luviora</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="left-section">
+                <div class="menu-icon" id="menuIcon">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <h1 class="site-title">La Luviora</h1>
+            </div>
+            <div class="nav-icons">
+                <a href="" class="icon-link">Profile</a>
+                <a href="" class="icon-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" stroke="black" stroke-width="2" d="M12 21s-6-4.35-8-8.27C2.27 9.4 4.35 4.91 7.91 4.91c2.04 0 3.55 1.35 4.09 2.09.54-.74 2.05-2.09 4.09-2.09 3.56 0 5.64 4.49 3.91 7.82C18 16.65 12 21 12 21z"/>
+                    </svg>
+                </a>
+                <a href="" class="icon-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" stroke="black" stroke-width="2" d="M6 6h15l-1.68 8.39a2 2 0 0 1-2 1.61H8.67a2 2 0 0 1-2-1.61L5 4H3"/>
+                        <circle cx="9" cy="20" r="1"/>
+                        <circle cx="18" cy="20" r="1"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="modal" class="hidden" >
+        <div class="modal-content">
+            <!-- Контент сайдбару -->
+            <p>Контент сайдбару тут</p>
+        </div>
+    </div>
+
+    <main>
+        {% block content %}
+        <!-- Тут буде контент із шаблонів, що розширюють base.html -->
+        {% endblock %}
+    
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Колонка 1: Допомога -->
+            <div class="footer-column">
+                <h3>Допомога</h3>
+                <ul>
+                    <li><a href="#">Мій обліковий запис</a></li>
+                    <li><a href="#">Товари та Розміри</a></li>
+                    <li><a href="#">Мої покупки</a></li>
+                    <li><a href="#">Повернення</a></li>
+                    <li><a href="#">Обмін і Отримання Назад Сплачених коштів</a></li>
+                </ul>
+            </div>
+    
+            <!-- Колонка 2: Стежте за нами -->
+            <div class="footer-column">
+                <h3>Стежте за нами</h3>
+                <ul>
+                    <li><a href="#">Тікток</a></li>
+                    <li><a href="#">Інстраграм</a></li>
+                </ul>
+            </div>
+    
+            <!-- Колонка 3: Компанія -->
+            <div class="footer-column">
+                <h3>Компанія</h3>
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Співпраця з нами</a></li>
+                </ul>
+            </div>
+    
+            <!-- Колонка 4: Політика -->
+            <div class="footer-column">
+                <h3>Політика</h3>
+                <ul>
+                    <li><a href="#">Політика конфіденційності</a></li>
+                    <li><a href="#">Умови придбання</a></li>
+                    <li><a href="#">Налаштування Cookie</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            <p>© All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+    function toggleModal() {
+        const modal = document.getElementById('modal');
+        modal.classList.toggle('show');  // Заміна .hidden на .show для відображення
+    }
+
+    document.getElementById('menuIcon').addEventListener('click', toggleModal);
+
+    // Закриваємо модальне вікно, якщо клікають поза межами
+    document.addEventListener('click', function(event) {
+        const modal = document.getElementById('modal');
+        const menuIcon = document.querySelector('.menu-icon');
+        
+        // Якщо клікають поза межами модального вікна і бургер-меню
+        if (!modal.contains(event.target) && !menuIcon.contains(event.target)) {
+            modal.classList.remove('show');  // Закриваємо модальне вікно
+        }
+    });
+       
+    </script>
+
+</body>
+</html>

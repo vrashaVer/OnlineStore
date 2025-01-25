@@ -1,0 +1,182 @@
+html, body {
+    height: 100%;  /* Необхідно, щоб обидва елементи займали всю висоту екрана */
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    position: relative; /* Це дозволить сайдбару бути поверх main, якщо потрібно */
+    z-index: 1;
+    flex: 1;
+
+}
+
+footer {
+    background-color: #ffffff; /* Колір для футера */
+    text-align: center; /* Вирівнювання футера по центру */
+    margin-top: auto; /* Це дозволяє футеру залишатися на низу */
+    padding: 30px 0;
+    font-family: 'Bebas Neue', sans-serif;
+}
+header {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex; /* Робимо елементи в рядок */
+    justify-content: space-between; /* Розташовуємо секції по краях */
+    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    width: 100%; /* Розтягуємо на всю ширину */
+    margin: 0; /* Прибираємо зовнішні відступи */
+    box-sizing: border-box; /* Враховуємо відступи в ширині */
+    padding: 15px 5px;
+}
+
+.left-section {
+    display: flex; /* Вирівнюємо бургер-меню та назву в рядок */
+    align-items: center; /* Вирівнюємо по вертикалі */
+    gap: 10px; /* Відстань між бургер-меню і назвою */
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column; /* Лінії бургер-меню одна під одною */
+    gap: 4px; /* Відстань між лініями */
+    cursor: pointer;
+}
+
+.menu-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+}
+
+.site-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.nav-icons {
+    display: flex; /* Елементи у рядок */
+    align-items: center; /* Вирівнюємо по вертикалі */
+    gap: 15px; /* Відстань між іконками */
+}
+
+.icon-link {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-link svg {
+    width: 24px;
+    height: 24px;
+}
+/* Модальне вікно */
+/* Модальне вікно */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0; /* Розташування зліва */
+    width: 350px; /* Збільшена ширина модального вікна */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Вищий z-index для перекриття основного контенту */
+    visibility: hidden; /* Спочатку приховане */
+    opacity: 0; /* Спочатку непрозоре */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавне з'явлення */
+}
+
+/* Відображення модального вікна */
+#modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Модальне вікно з контентом */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 100%; /* Відповідає ширині контейнера */
+    height: 100%;
+    overflow-y: auto; /* Якщо контент більший за висоту, додається скрол */
+    border: 1.5px solid #cccccc; /* Контур для модального вікна */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Тінь для контрасту */
+}
+
+/* Залишаємо header чітким, без затемнення */
+header {
+    z-index: 1100; /* Вищий z-index для header, щоб він був над модальним вікном */
+    position: relative;
+}
+
+/* Клас для приховування модального вікна */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Футер */
+
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 рівні колонки */
+    gap: 5px; /* Відстань між колонками */
+    max-width: 600px;
+    margin: 0; /* Центруємо футер */
+    padding: 0 15px;
+    padding-left: 150px;
+    margin-bottom: 150px; 
+}
+
+.footer-column {
+    text-align: left; /* Вирівнюємо текст по лівому краю */
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-column ul li a:hover {
+   text-decoration: underline;
+}
+
+.footer-rights {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    font-size: 14px;
+    color: black;
+    opacity: 0.3; 
+    
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" href="/static/help/account_help.css">
+
+{% block content %}
+<div class="help-container">
+    <aside class="help-menu">
+        <ul>
+            <h2>{{ category_name }}</h2>
+            {% for section_key, section in sections.items %}
+            <li>
+                <a href="{% url 'help' category=active_category section=section_key %}" 
+                   class="{% if section_key == active_section %}active{% endif %}">
+                    {{ section.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+    
+    <section class="help-content">
+        <h1>{{ active_section_data.title }}</h1>
+        <div>
+            {{ active_section_data.content|safe }}
+        </div>
+    </section>
+</div>
+{% endblock %}
